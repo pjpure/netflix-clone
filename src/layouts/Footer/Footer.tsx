@@ -22,16 +22,16 @@ function Footer() {
         <div className="my-footer-member">
           <ul>
             <li>
-              <a href="#">Audio and Subtitles</a>
+              <a href="/">Audio and Subtitles</a>
             </li>
             <li>
-              <a href="#">Media Center</a>
+              <a href="/">Media Center</a>
             </li>
             <li>
-              <a href="#">Privacy</a>
+              <a href="/">Privacy</a>
             </li>
             <li>
-              <a href="#">Contact Us</a>
+              <a href="/">Contact Us</a>
             </li>
           </ul>
         </div>

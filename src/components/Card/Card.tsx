@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Wrapper } from "./Card.styles";
 import { BsPlayCircleFill, BsPlusCircle } from "react-icons/bs";
 import ReactPlayer from "react-player";

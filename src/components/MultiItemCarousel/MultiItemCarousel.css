@@ -1,12 +1,45 @@
 .multi-item {
-  margin-left: 90px;
+  padding: 0 80px;
   margin-bottom: 20px;
   margin-top: 20px;
+  color: #fff;
+  position: relative;
 }
 
 .slider {
   display: flex;
-  flex-wrap: wrap;
   row-gap: 20px;
   column-gap: 30px;
+}
+
+.arrow-left {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  left: 30px;
+  background-color: rgba(204, 204, 204, 0.083);
+  height: 80%;
+  width: 50px;
+  opacity: 0;
+}
+
+.arrow-left:hover {
+  opacity: 1;
+}
+
+.arrow-right {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  right: 30px;
+  background-color: rgba(204, 204, 204, 0.083);
+  height: 80%;
+  width: 50px;
+  opacity: 0;
+}
+
+.arrow-right:hover {
+  opacity: 1;
 }

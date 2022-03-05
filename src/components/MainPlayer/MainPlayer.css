@@ -1,6 +1,7 @@
 .player-wrapper {
   margin-bottom: 20px;
   height: 90vh;
+  width: 100%;
 }
 
 .react-player {

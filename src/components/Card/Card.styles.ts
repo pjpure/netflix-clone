@@ -56,7 +56,7 @@ export const Wrapper = styled.div<Props>`
     top:50% ;
     width:100% ;
     display:none ;
-    margin-top:20px ;
+    margin-top:10px ;
   }
 
   .details-icon {

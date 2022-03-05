@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Wrapper } from "./Card.styles";
 import { BsPlayCircleFill, BsPlusCircle } from "react-icons/bs";
 import ReactPlayer from "react-player";
@@ -9,12 +9,13 @@ type Props = {
   video: string;
   title: string;
   genres: string;
+  numItem: number;
 };
 
-const Card: React.FC<Props> = ({ img, video, title, genres }) => {
+const Card: React.FC<Props> = ({ img, video, title, genres, numItem }) => {
   const [isPlay, setIsPlay] = useState<boolean>(false);
-  const [cardWidth, setCardWidth] = useState(320);
-  const [cardHeight, setCardHeight] = useState(180);
+  const [cardWidth, setCardWidth] = useState<number>(320);
+  const [cardHeight, setCardHeight] = useState<number>(180);
   const { width } = useWindowDimensions();
   const handleOnMouseOver = () => {
     setIsPlay(true);
@@ -24,9 +25,15 @@ const Card: React.FC<Props> = ({ img, video, title, genres }) => {
     setIsPlay(false);
   };
 
+  useEffect(() => {
+    let calWidth = (width - (160 + (numItem - 1) * 30)) / numItem;
+    setCardWidth(calWidth);
+    setCardHeight(Math.floor(calWidth / 1.77778));
+  }, [numItem, width]);
+
   return (
     <div>
-      <Wrapper width={cardHeight} height={cardHeight}>
+      <Wrapper width={cardWidth} height={cardHeight}>
         <div className="contents">
           <img src={img} alt="poster" />
           <div

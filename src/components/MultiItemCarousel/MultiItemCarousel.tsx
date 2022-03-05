@@ -3,6 +3,10 @@ import Card from "../Card/Card";
 
 //import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import "./MultiItemCarousel.css";
+
+//hooks
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+
 function MultiItemCarousel({ type, data }: { type: string; data: any }) {
   return (
     <div className="multi-item">

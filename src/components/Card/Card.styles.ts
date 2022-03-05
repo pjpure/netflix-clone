@@ -1,12 +1,16 @@
 import styled from 'styled-components';
-
-export const Wrapper = styled.div`
+interface Props {
+  width: number;
+  height: number;
+}
+export const Wrapper = styled.div<Props>`
   --border-radius: 8px;
   --transition-time: 0.3s;
   position: relative;
   background-color:#000 ;
   padding-top: 56.25%;
-  width:320px;
+  width:${props => props.width}px;
+  height:${props => props.height}px ;
   cursor: pointer;
   transition: all var(--transition-time);
   border-radius: var(--border-radius);
@@ -52,7 +56,7 @@ export const Wrapper = styled.div`
     top:50% ;
     width:100% ;
     display:none ;
-    margin-top:20px ;
+    margin-top:10px ;
   }
 
   .details-icon {

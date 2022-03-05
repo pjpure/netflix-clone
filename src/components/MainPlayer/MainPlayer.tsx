@@ -16,18 +16,21 @@ function MainPlayer() {
     setIsPlay(false);
   };
   return (
-    <div onMouseOver={handleOnMouseOver} onMouseOut={handleOnMouseOut}>
-      <div className="player-wrapper">
-        <ReactPlayer
-          className="react-player"
-          playing={isPlay}
-          loop={true}
-          width="100%"
-          height="100%"
-          controls={false}
-          url="https://www.youtube.com/watch?v=UTHhhQQhmYc"
-        />
-      </div>
+    <div
+      className="player-wrapper"
+      onMouseOver={handleOnMouseOver}
+      onMouseOut={handleOnMouseOut}
+    >
+      <ReactPlayer
+        className="react-player"
+        playing={isPlay}
+        loop={true}
+        width="100%"
+        height="100%"
+        controls={false}
+        url="https://www.youtube.com/watch?v=UTHhhQQhmYc"
+      />
+
       <div className="logo">
         <span>Demon Slayer</span>
         <img src={yaibaLogo} alt="logo" />

@@ -1,15 +1,14 @@
 import React from "react";
 import { Wrapper } from "./MultiItemCarousel.styles";
 import Card from "../Card/Card";
-import myHero from "../../assets/my-hero.png";
+import movies from "../../data/movies";
+
 function MultiItemCarousel() {
   return (
     <Wrapper>
-      <Card img={myHero} video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" />
-      <Card img={myHero} video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" />
-      <Card img={myHero} video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" />
-      <Card img={myHero} video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" />
-      <Card img={myHero} video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" />
+      {movies.map((movie) => {
+        return <Card {...movie} />;
+      })}
     </Wrapper>
   );
 }

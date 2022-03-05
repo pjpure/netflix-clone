@@ -1,37 +1,54 @@
+import React, { useState, useRef } from "react";
 import { Wrapper } from "./Card.styles";
-import { BsPlayCircle } from "react-icons/bs";
+import { BsPlayCircleFill, BsPlusCircle } from "react-icons/bs";
+import ReactPlayer from "react-player";
 
 type Props = {
   img: string;
   video: string;
+  title: string;
+  genres: string;
 };
 
-const Card: React.FC<Props> = ({ img, video }) => {
-  const handleOnMouseOver = (e: React.MouseEvent<HTMLVideoElement>) => {
-    e.currentTarget.play();
+const Card: React.FC<Props> = ({ img, video, title, genres }) => {
+  const [isPlay, setIsPlay] = useState<boolean>(false);
+
+  const handleOnMouseOver = () => {
+    setIsPlay(true);
   };
 
-  const handleOnMouseOut = (e: React.MouseEvent<HTMLVideoElement>) => {
-    e.currentTarget.pause();
+  const handleOnMouseOut = () => {
+    setIsPlay(false);
   };
 
   return (
     <Wrapper>
       <div className="contents">
         <img src={img} alt="poster" />
-        <video
-          loop
-          preload="none"
-          //muted // Needs to be there to be able to play
+        <div
+          className="video-wrapper"
           onMouseOver={handleOnMouseOver}
           onMouseOut={handleOnMouseOut}
         >
-          <source src={video} type="video/mp4" />
-        </video>
+          <ReactPlayer
+            playing={isPlay}
+            loop={true}
+            width={320}
+            height={180}
+            url={video}
+          />
+        </div>
       </div>
 
       <div className="details">
-        <BsPlayCircle size={30} />
+        <div className="details-icon">
+          <BsPlayCircleFill size={25} />
+          <BsPlusCircle size={25} />
+        </div>
+        <div className="details-des">
+          <h5>{title}</h5>
+          <p>{genres}</p>
+        </div>
       </div>
     </Wrapper>
   );

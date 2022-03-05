@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Wrapper } from "./Card.styles";
 import { BsPlayCircleFill, BsPlusCircle } from "react-icons/bs";
 import ReactPlayer from "react-player";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 type Props = {
   img: string;
@@ -22,8 +23,8 @@ const Card: React.FC<Props> = ({ img, video, title, genres }) => {
   };
 
   return (
-    <div style={{ width: "320px", height: "180px" }}>
-      <Wrapper>
+    <div>
+      <Wrapper width={320} height={180}>
         <div className="contents">
           <img src={img} alt="poster" />
           <div

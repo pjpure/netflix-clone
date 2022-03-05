@@ -18,7 +18,13 @@ function NavBar() {
 
   return (
     <div className="my-nav-bar">
-      <img src={netflixLogo} alt="Netflix Logo" />
+      <a href="/">
+        <img
+          style={{ cursor: "pointer" }}
+          src={netflixLogo}
+          alt="Netflix Logo"
+        />
+      </a>
       <ul>
         <li>
           <a href="/">Home</a>

@@ -25,7 +25,7 @@ function MainPlayer() {
           width="100%"
           height="100%"
           controls={false}
-          url="https://www.youtube.com/watch?v=2MKkj1DQ0NU"
+          url="https://www.youtube.com/watch?v=UTHhhQQhmYc"
         />
       </div>
       <div className="logo">

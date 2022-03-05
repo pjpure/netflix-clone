@@ -3,3 +3,13 @@ body {
   background-color: #141414 !important;
   font-family: "Kanit", sans-serif !important;
 }
+
+.App {
+  position: relative;
+}
+
+.list {
+  position: absolute;
+  top: 90vh;
+  background-color: #141414b3;
+}

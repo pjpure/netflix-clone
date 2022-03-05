@@ -6,8 +6,7 @@ import "./MultiItemCarousel.css";
 function MultiItemCarousel({ type, data }: { type: string; data: any }) {
   return (
     <div className="multi-item">
-      <h4 style={{ color: "white" }}>{type}</h4>
-      <br />
+      <h4 style={{ color: "white", marginBottom: "10px" }}>{type}</h4>
       <div className="slider">
         {data.map((item: any) => {
           return <Card {...item} />;

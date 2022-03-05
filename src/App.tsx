@@ -7,19 +7,19 @@ import MultiItemCarousel from "./components/MultiItemCarousel/MultiItemCarousel"
 import movies from "./data/movies";
 import animes from "./data/animes";
 import series from "./data/series";
+import mylists from "./data/mylists";
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <br />
-      <br />
-      <br />
       <MainPlayer />
-      <MultiItemCarousel type={"Movies"} data={movies} />
-      <MultiItemCarousel type={"Animes"} data={animes} />
-      <MultiItemCarousel type={"Series"} data={series} />
-      <MultiItemCarousel type={"My List"} data={animes} />
-      <Footer />
+      <div className="list">
+        <MultiItemCarousel type={"Movies"} data={movies} />
+        <MultiItemCarousel type={"Animes"} data={animes} />
+        <MultiItemCarousel type={"Series"} data={series} />
+        <MultiItemCarousel type={"My List"} data={mylists} />
+        <Footer />
+      </div>
     </div>
   );
 }

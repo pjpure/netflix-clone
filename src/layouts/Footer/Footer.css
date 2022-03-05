@@ -13,11 +13,12 @@
   display: flex;
   column-gap: 40px;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .my-footer-member {
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .my-footer-member ul {

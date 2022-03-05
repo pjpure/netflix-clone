@@ -1,7 +1,6 @@
 .player-wrapper {
-  position: relative;
   margin-bottom: 20px;
-  height: 80vh;
+  height: 90vh;
 }
 
 .react-player {
@@ -12,19 +11,19 @@
 
 .logo {
   position: absolute;
-  bottom: 350px;
+  bottom: 260px;
   left: 80px;
   color: #fff;
-  font-size: 40pt;
+  font-size: 35pt;
 }
 
 .logo img {
-  width: 300px;
+  width: 200px;
 }
 
 .play-btn {
   position: absolute;
-  bottom: 300px;
+  bottom: 200px;
   left: 100px;
   background-color: #fff !important;
   color: #000 !important;
@@ -35,9 +34,8 @@
 
 .more-btn {
   position: absolute;
-  bottom: 300px;
+  bottom: 200px;
   left: 250px;
-
   color: #000 !important;
   border: none !important;
   outline: none !important;

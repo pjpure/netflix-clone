@@ -1,15 +1,19 @@
 import React from "react";
-import { Wrapper } from "./MultiItemCarousel.styles";
 import Card from "../Card/Card";
-import movies from "../../data/movies";
 
-function MultiItemCarousel() {
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import "./MultiItemCarousel.css";
+function MultiItemCarousel({ type, data }: { type: string; data: any }) {
   return (
-    <Wrapper>
-      {movies.map((movie) => {
-        return <Card {...movie} />;
-      })}
-    </Wrapper>
+    <div className="multi-item">
+      <h4 style={{ color: "white" }}>{type}</h4>
+      <br />
+      <div className="slider">
+        {data.map((item: any) => {
+          return <Card {...item} />;
+        })}
+      </div>
+    </div>
   );
 }
 

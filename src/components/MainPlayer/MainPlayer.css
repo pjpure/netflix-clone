@@ -1,0 +1,46 @@
+.player-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+  height: 80vh;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.logo {
+  position: absolute;
+  bottom: 350px;
+  left: 80px;
+  color: #fff;
+  font-size: 40pt;
+}
+
+.logo img {
+  width: 300px;
+}
+
+.play-btn {
+  position: absolute;
+  bottom: 300px;
+  left: 100px;
+  background-color: #fff !important;
+  color: #000 !important;
+  border: none !important;
+  outline: none !important;
+  width: 110px;
+}
+
+.more-btn {
+  position: absolute;
+  bottom: 300px;
+  left: 250px;
+
+  color: #000 !important;
+  border: none !important;
+  outline: none !important;
+  width: 150px;
+  background-color: rgba(204, 204, 204, 0.563) !important;
+}

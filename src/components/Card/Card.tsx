@@ -22,35 +22,38 @@ const Card: React.FC<Props> = ({ img, video, title, genres }) => {
   };
 
   return (
-    <Wrapper>
-      <div className="contents">
-        <img src={img} alt="poster" />
-        <div
-          className="video-wrapper"
-          onMouseOver={handleOnMouseOver}
-          onMouseOut={handleOnMouseOut}
-        >
-          <ReactPlayer
-            playing={isPlay}
-            loop={true}
-            width={320}
-            height={180}
-            url={video}
-          />
+    <div style={{ width: "320px", height: "180px" }}>
+      <Wrapper>
+        <div className="contents">
+          <img src={img} alt="poster" />
+          <div
+            className="video-wrapper"
+            onMouseOver={handleOnMouseOver}
+            onMouseOut={handleOnMouseOut}
+          >
+            <ReactPlayer
+              playing={isPlay}
+              loop={true}
+              width={320}
+              height={180}
+              url={video}
+              muted={true}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="details">
-        <div className="details-icon">
-          <BsPlayCircleFill size={25} />
-          <BsPlusCircle size={25} />
+        <div className="details">
+          <div className="details-icon">
+            <BsPlayCircleFill size={25} />
+            <BsPlusCircle size={25} />
+          </div>
+          <div className="details-des">
+            <h5>{title}</h5>
+            <p>{genres}</p>
+          </div>
         </div>
-        <div className="details-des">
-          <h5>{title}</h5>
-          <p>{genres}</p>
-        </div>
-      </div>
-    </Wrapper>
+      </Wrapper>
+    </div>
   );
 };
 

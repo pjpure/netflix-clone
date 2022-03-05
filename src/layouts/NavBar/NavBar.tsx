@@ -21,16 +21,16 @@ function NavBar() {
       <img src={netflixLogo} alt="Netflix Logo" />
       <ul>
         <li>
-          <a href="#">Home</a>
+          <a href="/">Home</a>
         </li>
         <li>
-          <a href="#">TV Shows</a>
+          <a href="/">TV Shows</a>
         </li>
         <li>
-          <a href="#">Movies</a>
+          <a href="/">Movies</a>
         </li>
         <li>
-          <a href="#">My List</a>
+          <a href="/">My List</a>
         </li>
       </ul>
       <div

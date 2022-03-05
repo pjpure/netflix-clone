@@ -13,7 +13,9 @@ type Props = {
 
 const Card: React.FC<Props> = ({ img, video, title, genres }) => {
   const [isPlay, setIsPlay] = useState<boolean>(false);
-
+  const [cardWidth, setCardWidth] = useState(320);
+  const [cardHeight, setCardHeight] = useState(180);
+  const { width } = useWindowDimensions();
   const handleOnMouseOver = () => {
     setIsPlay(true);
   };
@@ -24,7 +26,7 @@ const Card: React.FC<Props> = ({ img, video, title, genres }) => {
 
   return (
     <div>
-      <Wrapper width={320} height={180}>
+      <Wrapper width={cardHeight} height={cardHeight}>
         <div className="contents">
           <img src={img} alt="poster" />
           <div
@@ -35,8 +37,8 @@ const Card: React.FC<Props> = ({ img, video, title, genres }) => {
             <ReactPlayer
               playing={isPlay}
               loop={true}
-              width={320}
-              height={180}
+              width={cardWidth}
+              height={cardHeight}
               url={video}
               muted={true}
             />

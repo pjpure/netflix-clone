@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
   transition: all var(--transition-time);
   border-radius: var(--border-radius);
   :hover {
-    height: calc(180%);
-    transform:scale(1.4) ;
+    height: calc(190%);
+    transform:scale(1.3) ;
     
     z-index: 20;
     .video-wrapper {

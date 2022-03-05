@@ -1,4 +1,4 @@
-.footer {
+.my-footer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -11,25 +11,31 @@
   padding: 40px;
 }
 
-.footer-icon {
+.my-footer-icon {
   display: flex;
   column-gap: 40px;
   width: 100%;
+  margin-bottom: 20px;
 }
 
-.footer-member {
+.my-footer-member {
   width: 100%;
 }
 
-.footer-member ul {
+.my-footer-member ul {
   padding-left: 0;
   display: flex;
   column-gap: 30px;
+  flex-wrap: wrap;
 }
-.footer-member li {
+.my-footer-member li {
   list-style-type: none;
 }
-.footer-member a {
+.my-footer-member a {
   text-decoration: none;
   color: #ccc;
+}
+
+.my-footer-member li :hover {
+  color: #fff;
 }

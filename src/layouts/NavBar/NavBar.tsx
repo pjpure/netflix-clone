@@ -17,7 +17,7 @@ function NavBar() {
   };
 
   return (
-    <div className="nav-bar">
+    <div className="my-nav-bar">
       <img src={netflixLogo} alt="Netflix Logo" />
       <ul>
         <li>
@@ -34,7 +34,7 @@ function NavBar() {
         </li>
       </ul>
       <div
-        className="nav-search"
+        className="my-nav-search"
         style={isSearch ? { border: "1px solid #ddd" } : {}}
       >
         <FaSearch size={20} onClick={searchToggle} />
@@ -46,7 +46,7 @@ function NavBar() {
             placeholder="Title, people, genres"
           />
         )}
-        {search.length > 0 && <ImCross size={20} onClick={searchToggle} />}
+        {search.length > 0 && <ImCross size={15} onClick={searchToggle} />}
       </div>
     </div>
   );

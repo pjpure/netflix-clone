@@ -1,4 +1,4 @@
-.nav-bar {
+.my-nav-bar {
   position: fixed;
   display: flex;
   flex-direction: row;
@@ -12,44 +12,46 @@
   color: #fff;
 }
 
-.nav-bar img {
+.my-nav-bar img {
   height: 100%;
   width: auto;
 }
 
-.nav-bar ul {
+.my-nav-bar ul {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   column-gap: 20px;
   padding: 0 14px;
+  margin: 0;
 }
 
-.nav-bar li {
+.my-nav-bar li {
   list-style-type: none;
 }
 
-.nav-bar a {
+.my-nav-bar a {
   color: #fff;
   text-decoration: none;
 }
 
-.nav-bar li :hover {
+.my-nav-bar li :hover {
   color: #ccc;
 }
 
-.nav-search {
+.my-nav-search {
   display: flex;
   flex-direction: row;
   margin-left: auto;
-  margin-right: 50px;
+  margin-right: 20px;
   align-items: center;
   padding: 0 10px;
 }
 
-.nav-search input {
+.my-nav-search input {
   border: none;
   outline: none;
   background-color: #0f0f0f;
   color: #fff;
   padding: 10px;
+  height: 40px;
 }

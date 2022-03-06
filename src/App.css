@@ -5,11 +5,11 @@ body {
 }
 
 .App {
-  position: relative;
+  /* position: relative; */
 }
 
 .list {
-  position: absolute;
+  /* position: absolute; */
   top: 90vh;
   background-color: #141414b3;
 }

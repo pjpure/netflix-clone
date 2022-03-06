@@ -55,4 +55,17 @@
   color: #fff;
   padding: 10px;
   height: 40px;
+  width: 200px;
+}
+
+@media screen and (max-width: 600px) {
+  .my-nav-search input {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .my-nav-search input {
+    width: 100px;
+  }
 }

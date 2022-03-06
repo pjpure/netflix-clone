@@ -1,5 +1,7 @@
 .player-wrapper {
+  position: relative;
   margin-bottom: 20px;
+  object-fit: cover;
   height: 90vh;
   width: 100%;
 }
@@ -42,4 +44,110 @@
   outline: none !important;
   width: 150px;
   background-color: rgba(204, 204, 204, 0.563) !important;
+}
+
+@media screen and (max-width: 1500px) {
+  .player-wrapper {
+    height: 80vh;
+  }
+  .logo {
+    bottom: 210px;
+    left: 150px;
+    font-size: 30pt;
+  }
+  .logo img {
+    width: 200px;
+  }
+  .play-btn {
+    bottom: 150px;
+    left: 150px;
+  }
+  .more-btn {
+    bottom: 150px;
+    left: 290px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .player-wrapper {
+    height: 70vh;
+  }
+  .logo {
+    bottom: 170px;
+    left: 80px;
+    font-size: 23pt;
+  }
+  .logo img {
+    width: 180px;
+  }
+  .play-btn {
+    bottom: 120px;
+    left: 80px;
+    font-size: 10pt !important;
+    width: 90px;
+    height: 40px;
+  }
+  .more-btn {
+    bottom: 120px;
+    left: 190px;
+    font-size: 10pt !important;
+    width: 120px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .player-wrapper {
+    height: 50vh;
+  }
+  .logo {
+    bottom: 150px;
+    left: 60px;
+    font-size: 22pt;
+  }
+  .logo img {
+    width: 140px;
+  }
+  .play-btn {
+    bottom: 100px;
+    left: 60px;
+    font-size: 10pt !important;
+    width: 90px;
+    height: 40px;
+  }
+  .more-btn {
+    bottom: 100px;
+    left: 170px;
+    font-size: 10pt !important;
+    width: 120px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .player-wrapper {
+    height: 40vh;
+  }
+  .logo {
+    bottom: 150px;
+    left: 40px;
+    font-size: 18pt;
+  }
+  .logo img {
+    width: 100px;
+  }
+  .play-btn {
+    bottom: 100px;
+    left: 40px;
+    font-size: 10pt !important;
+    width: 90px;
+    height: 40px;
+  }
+  .more-btn {
+    bottom: 100px;
+    left: 150px;
+    font-size: 10pt !important;
+    width: 120px;
+    height: 40px;
+  }
 }

@@ -30,12 +30,6 @@ function NavBar() {
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="/">TV Shows</a>
-        </li>
-        <li>
-          <a href="/">Movies</a>
-        </li>
-        <li>
           <a href="/">My List</a>
         </li>
       </ul>

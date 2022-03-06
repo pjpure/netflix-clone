@@ -21,6 +21,7 @@
   height: 80%;
   width: 50px;
   opacity: 0;
+  cursor: pointer;
 }
 
 .arrow-left:hover {
@@ -37,6 +38,7 @@
   height: 80%;
   width: 50px;
   opacity: 0;
+  cursor: pointer;
 }
 
 .arrow-right:hover {

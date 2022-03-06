@@ -3,10 +3,10 @@ import "./NavBar.css";
 import netflixLogo from "../../assets/netflix-logo.png";
 import { FaSearch } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
+
 function NavBar() {
   const [search, setSearch] = useState<string>("");
   const [isSearch, setIsSearch] = useState<boolean>(false);
-
   const searchToggle = () => {
     setIsSearch(!isSearch);
     setSearch("");

@@ -16,7 +16,7 @@ const cardSlice = createSlice({
     name: 'card',
     initialState,
     reducers: {
-        setCard: (state, action: PayloadAction<string>) => {
+        setCard: (state, action: PayloadAction<string | null>) => {
             state.id = action.payload;
         },
     },

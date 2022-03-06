@@ -48,7 +48,7 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
   const handleMouseLeave = () => {
     setIsEnter(false);
     //setIsPlay(false);
-    dispatch(setCard("-1"));
+    dispatch(setCard(null));
     if (delayHandlerEnter) {
       clearTimeout(delayHandlerEnter);
     }

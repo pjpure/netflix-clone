@@ -22,6 +22,41 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
   const card = useAppSelector((state) => state.card);
   const dispatch = useAppDispatch();
 
+  const [isPlay, setIsPlay] = useState(false);
+  const [isEnter, setIsEnter] = useState(false);
+  const [delayHandler, setDelayHandler] =
+    useState<ReturnType<typeof setTimeout>>();
+
+  const [delayHandlerEnter, setDelayHandlerEnter] =
+    useState<ReturnType<typeof setTimeout>>();
+
+  const handleMouseEnter = (event: any) => {
+    //setIsEnter(true);
+    setDelayHandlerEnter(
+      setTimeout(() => {
+        setIsEnter(true);
+      }, 200)
+    );
+    setDelayHandler(
+      setTimeout(() => {
+        //setIsPlay(true);
+        dispatch(setCard(id));
+      }, 2000)
+    );
+  };
+
+  const handleMouseLeave = () => {
+    setIsEnter(false);
+    //setIsPlay(false);
+    dispatch(setCard("-1"));
+    if (delayHandlerEnter) {
+      clearTimeout(delayHandlerEnter);
+    }
+    if (delayHandler) {
+      clearTimeout(delayHandler);
+    }
+  };
+
   const handleOnMouseOver = (id: string) => {
     dispatch(setCard(id));
   };
@@ -36,26 +71,27 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
     setCardHeight(Math.floor(calWidth / 1.77778));
   }, [numItem, width]);
 
+  useEffect(() => {
+    if (card.id === id) {
+      setIsPlay(true);
+    } else {
+      setIsPlay(false);
+    }
+  }, [card, id]);
+
   return (
-    <div
-      onMouseEnter={() => handleOnMouseOver(id)}
-      onMouseLeave={handleOnMouseOut}
-    >
-      <Wrapper
-        isSelected={card.id === id ? true : false}
-        width={cardWidth}
-        height={cardHeight}
-      >
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Wrapper isSelected={isEnter} width={cardWidth} height={cardHeight}>
         <div className="contents">
           <img src={img} alt="poster" />
           <div className="video-wrapper">
             <ReactPlayer
-              playing={card.id === id ? true : false}
+              playing={isPlay}
               loop={true}
               width={cardWidth}
               height={cardHeight}
               url={video}
-              muted={true}
+              // muted={true}
             />
           </div>
         </div>

@@ -17,12 +17,7 @@ export const Wrapper = styled.div<Props>`
   transition: all var(--transition-time);
   border-radius: var(--border-radius);
   ${props => props.isSelected && 'height: calc(190%); transform:scale(1.3) ; z-index: 20;'}
-  /* :hover {
-    height: calc(190%);
-    transform:scale(1.3) ;
-    z-index: 20;
-  } */
-  
+
   img {
     ${props => props.isSelected ? 'opacity:0;' : 'opacity: 100;'}
     position: absolute;

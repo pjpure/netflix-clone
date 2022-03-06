@@ -49,7 +49,7 @@ const animes = [
     },
     {
         id: '8',
-        title: "Demon Slayer: Kimetsu no Yaiba",
+        title: "Demon Slayer",
         genres: "Action",
         img: 'https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/6079/1106079-h-030e4e497037',
         video: "https://www.youtube.com/watch?v=2MKkj1DQ0NU",

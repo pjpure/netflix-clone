@@ -2,7 +2,9 @@ import styled from 'styled-components';
 interface Props {
   width: number;
   height: number;
+  isSelected: boolean;
 }
+
 export const Wrapper = styled.div<Props>`
   --border-radius: 8px;
   --transition-time: 0.3s;
@@ -14,24 +16,15 @@ export const Wrapper = styled.div<Props>`
   cursor: pointer;
   transition: all var(--transition-time);
   border-radius: var(--border-radius);
-  :hover {
+  ${props => props.isSelected && 'height: calc(190%); transform:scale(1.3) ; z-index: 20;'}
+  /* :hover {
     height: calc(190%);
     transform:scale(1.3) ;
-    
     z-index: 20;
-    .video-wrapper {
-      opacity: 100;
-      height:50% ;
-    }
-    img{
-        opacity: 0;
-    }
-    .details {
-        display:block ;
-    }
-  }
+  } */
   
   img {
+    ${props => props.isSelected ? 'opacity:0;' : 'opacity: 100;'}
     position: absolute;
     top: 0;
     width: 100%;
@@ -42,20 +35,20 @@ export const Wrapper = styled.div<Props>`
     border-radius: var(--border-radius);
   }
   .video-wrapper {
+    ${props => props.isSelected ? 'opacity: 100; height:50% ;' : 'opacity: 0;'}
     position: absolute;
     top: 0;
-    opacity: 0;
     width: 100%;
     object-fit: cover;
     border-radius: var(--border-radius);
   }
   .details {
+    ${props => props.isSelected ? ' display:block;' : 'display:none ;'}
     padding:10px ;
     color:#fff ;
     position: absolute;
     top:50% ;
     width:100% ;
-    display:none ;
     margin-top:10px ;
   }
 

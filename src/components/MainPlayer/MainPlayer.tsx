@@ -1,29 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import "./MainPlayer.css";
 import ReactPlayer from "react-player";
 import { Button } from "react-bootstrap";
 import { BsPlayFill } from "react-icons/bs";
 import { BiInfoCircle } from "react-icons/bi";
 import yaibaLogo from "../../assets/yaiba.png";
-function MainPlayer() {
-  const [isPlay, setIsPlay] = useState<boolean>(false);
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { setCard } from "../../app/slices/cardSlice";
 
-  const handleOnMouseOver = () => {
-    setIsPlay(true);
+function MainPlayer() {
+  const card = useAppSelector((state) => state.card);
+  const dispatch = useAppDispatch();
+
+  const handleOnMouseOver = (id: string) => {
+    dispatch(setCard(id));
   };
 
   const handleOnMouseOut = () => {
-    setIsPlay(false);
+    dispatch(setCard("-1"));
   };
   return (
     <div
       className="player-wrapper"
-      onMouseOver={handleOnMouseOver}
-      onMouseOut={handleOnMouseOut}
+      onMouseEnter={() => handleOnMouseOver("0")}
+      onMouseLeave={handleOnMouseOut}
     >
       <ReactPlayer
         className="react-player"
-        playing={isPlay}
+        playing={card.id === "0" ? true : false}
         loop={true}
         width="100%"
         height="100%"

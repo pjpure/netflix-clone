@@ -1,5 +1,4 @@
 import "./App.css";
-
 import NavBar from "./layouts/NavBar/NavBar";
 import Footer from "./layouts/Footer/Footer";
 import MainPlayer from "./components/MainPlayer/MainPlayer";
@@ -8,6 +7,7 @@ import movies from "./data/movies";
 import animes from "./data/animes";
 import series from "./data/series";
 import mylists from "./data/mylists";
+
 function App() {
   return (
     <div className="App">

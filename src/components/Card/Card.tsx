@@ -3,8 +3,10 @@ import { Wrapper } from "./Card.styles";
 import { BsPlayCircleFill, BsPlusCircle } from "react-icons/bs";
 import ReactPlayer from "react-player";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { setCard } from "../../app/slices/cardSlice";
 type Props = {
+  id: string;
   img: string;
   video: string;
   title: string;
@@ -12,17 +14,20 @@ type Props = {
   numItem: number;
 };
 
-const Card: React.FC<Props> = ({ img, video, title, genres, numItem }) => {
-  const [isPlay, setIsPlay] = useState<boolean>(false);
+const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
   const [cardWidth, setCardWidth] = useState<number>(320);
   const [cardHeight, setCardHeight] = useState<number>(180);
   const { width } = useWindowDimensions();
-  const handleOnMouseOver = () => {
-    setIsPlay(true);
+
+  const card = useAppSelector((state) => state.card);
+  const dispatch = useAppDispatch();
+
+  const handleOnMouseOver = (id: string) => {
+    dispatch(setCard(id));
   };
 
   const handleOnMouseOut = () => {
-    setIsPlay(false);
+    dispatch(setCard("-1"));
   };
 
   useEffect(() => {
@@ -32,17 +37,20 @@ const Card: React.FC<Props> = ({ img, video, title, genres, numItem }) => {
   }, [numItem, width]);
 
   return (
-    <div>
-      <Wrapper width={cardWidth} height={cardHeight}>
+    <div
+      onMouseEnter={() => handleOnMouseOver(id)}
+      onMouseLeave={handleOnMouseOut}
+    >
+      <Wrapper
+        isSelected={card.id === id ? true : false}
+        width={cardWidth}
+        height={cardHeight}
+      >
         <div className="contents">
           <img src={img} alt="poster" />
-          <div
-            className="video-wrapper"
-            onMouseOver={handleOnMouseOver}
-            onMouseOut={handleOnMouseOut}
-          >
+          <div className="video-wrapper">
             <ReactPlayer
-              playing={isPlay}
+              playing={card.id === id ? true : false}
               loop={true}
               width={cardWidth}
               height={cardHeight}

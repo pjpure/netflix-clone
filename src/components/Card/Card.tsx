@@ -57,14 +57,6 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
     }
   };
 
-  const handleOnMouseOver = (id: string) => {
-    dispatch(setCard(id));
-  };
-
-  const handleOnMouseOut = () => {
-    dispatch(setCard("-1"));
-  };
-
   useEffect(() => {
     let calWidth = (width - (160 + (numItem - 1) * 30)) / numItem;
     setCardWidth(calWidth);

@@ -7,7 +7,7 @@ interface Props {
 
 export const Wrapper = styled.div<Props>`
   --border-radius: 8px;
-  --transition-time: 0.3s;
+  --transition-time: 0.2s;
   position: relative;
   background-color:#000 ;
   padding-top: 56.25%;

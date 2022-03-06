@@ -8,8 +8,7 @@
 
 .slider {
   display: flex;
-  row-gap: 20px;
-  column-gap: 30px;
+  column-gap: 29px;
 }
 
 .arrow-left {
@@ -22,7 +21,6 @@
   height: 80%;
   width: 50px;
   opacity: 0;
-  z-index: 30;
 }
 
 .arrow-left:hover {
@@ -39,7 +37,6 @@
   height: 80%;
   width: 50px;
   opacity: 0;
-  z-index: 30;
 }
 
 .arrow-right:hover {

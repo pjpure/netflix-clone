@@ -59,6 +59,7 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
 
   useEffect(() => {
     let calWidth = (width - (160 + (numItem - 1) * 30)) / numItem;
+    calWidth = Math.floor(calWidth);
     setCardWidth(calWidth);
     setCardHeight(Math.floor(calWidth / 1.77778));
   }, [numItem, width]);

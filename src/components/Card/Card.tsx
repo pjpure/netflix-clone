@@ -83,7 +83,7 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
               width={cardWidth}
               height={cardHeight}
               url={video}
-              // muted={true}
+              muted={true}
             />
           </div>
         </div>

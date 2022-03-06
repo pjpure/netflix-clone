@@ -18,7 +18,6 @@ function Footer() {
           <FaTwitter size={25} />
           <FaLinkedinIn size={25} />
         </div>
-
         <div className="my-footer-member">
           <ul>
             <li>

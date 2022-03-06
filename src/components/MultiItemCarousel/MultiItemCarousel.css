@@ -1,9 +1,9 @@
 .multi-item {
+  position: relative;
   padding: 0 80px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   margin-top: 20px;
   color: #fff;
-  position: relative;
 }
 
 .slider {

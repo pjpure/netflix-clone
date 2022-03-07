@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import MainPlayer from "../../components/MainPlayer/MainPlayer";
 import MultiItemCarousel from "../../components/MultiItemCarousel/MultiItemCarousel";
 import { useMovies, useAnimes, useSeries } from "../../hooks/useVideos";
@@ -35,17 +34,6 @@ function Home() {
           <MultiItemCarousel type={"Loading..."} data={[]} />
         ) : (
           <MultiItemCarousel type={"Movies"} data={movies} />
-        )}
-
-        {isLoadingSeries ? (
-          <MultiItemCarousel type={"Loading..."} data={[]} />
-        ) : (
-          <MultiItemCarousel type={"Series"} data={series} />
-        )}
-        {isLoadingAnimes ? (
-          <MultiItemCarousel type={"Loading..."} data={[]} />
-        ) : (
-          <MultiItemCarousel type={"Animes"} data={animes} />
         )}
       </div>
       <Footer />

@@ -11,23 +11,29 @@ type Video = {
     video: string,
 }
 
-const baseUrl = 'https://netflix-clone-db.pjpure.repl.co/videos/'
+const baseUrl = 'https://netflix-clone-db.pjpure.repl.co'
 
 export const useMovies = () => {
     return useQuery<Video[], { message: string }>('movies', () =>
-        fetch(`${baseUrl}?type=movie`).then((res) => res.json()).then((data) => data),
+        fetch(`${baseUrl}/videos/?type=movie`).then((res) => res.json()).then((data) => data),
     )
 }
 
 export const useSeries = () => {
     return useQuery<Video[], { message: string }>('series', () =>
-        fetch(`${baseUrl}?type=series`).then((res) => res.json()).then((data) => data),
+        fetch(`${baseUrl}/videos/?type=series`).then((res) => res.json()).then((data) => data),
     )
 }
 
 export const useAnimes = () => {
     return useQuery<Video[], { message: string }>('animes', () =>
-        fetch(`${baseUrl}?type=anime`).then((res) => res.json()).then((data) => data),
+        fetch(`${baseUrl}/videos/?type=anime`).then((res) => res.json()).then((data) => data),
+    )
+}
+
+export const useWatch = (id: string | undefined) => {
+    return useQuery<Video, { message: string }>(['watch', id], () =>
+        fetch(`${baseUrl}/videos/${id}`).then((res) => res.json()).then((data) => data),
     )
 }
 

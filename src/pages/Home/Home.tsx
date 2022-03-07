@@ -13,29 +13,27 @@ function Home() {
     <div>
       <NavBar />
       <MainPlayer />
-      <div className="list">
-        {isLoadingMovies ? (
-          <MultiItemCarousel type={"Loading..."} data={[]} />
-        ) : (
-          <MultiItemCarousel type={"Movies"} data={movies} />
-        )}
+      {isLoadingMovies ? (
+        <MultiItemCarousel type={"Loading..."} data={[]} />
+      ) : (
+        <MultiItemCarousel type={"Movies"} data={movies} />
+      )}
 
-        {isLoadingSeries ? (
-          <MultiItemCarousel type={"Loading..."} data={[]} />
-        ) : (
-          <MultiItemCarousel type={"Series"} data={series} />
-        )}
-        {isLoadingAnimes ? (
-          <MultiItemCarousel type={"Loading..."} data={[]} />
-        ) : (
-          <MultiItemCarousel type={"Animes"} data={animes} />
-        )}
-        {isLoadingMovies ? (
-          <MultiItemCarousel type={"Loading..."} data={[]} />
-        ) : (
-          <MultiItemCarousel type={"Movies"} data={movies} />
-        )}
-      </div>
+      {isLoadingSeries ? (
+        <MultiItemCarousel type={"Loading..."} data={[]} />
+      ) : (
+        <MultiItemCarousel type={"Series"} data={series} />
+      )}
+      {isLoadingAnimes ? (
+        <MultiItemCarousel type={"Loading..."} data={[]} />
+      ) : (
+        <MultiItemCarousel type={"Animes"} data={animes} />
+      )}
+      {isLoadingMovies ? (
+        <MultiItemCarousel type={"Loading..."} data={[]} />
+      ) : (
+        <MultiItemCarousel type={"Movies"} data={movies} />
+      )}
       <Footer />
     </div>
   );

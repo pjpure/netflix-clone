@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import "./MainPlayer.css";
 import ReactPlayer from "react-player";
 import { Button } from "react-bootstrap";
@@ -8,19 +9,28 @@ import { useWindowScrollPositions } from "../../hooks/useWindowScrollPositions";
 import { useNavigate } from "react-router-dom";
 
 function MainPlayer() {
+  const [isPlay, setIsPlay] = useState(false);
   const { scrollY } = useWindowScrollPositions();
-  const elmnt = document.getElementById("main-player");
-  let elmntHight = elmnt ? elmnt.offsetHeight : 0;
-  if (elmntHight > 0) {
-    elmntHight = Math.floor(elmntHight * 0.7);
-  }
+
+  useEffect(() => {
+    const elmnt = document.getElementById("main-player");
+    let elmntHight = elmnt ? elmnt.offsetHeight : 0;
+    if (elmntHight > 0) {
+      elmntHight = Math.floor(elmntHight * 0.7);
+    }
+    if (scrollY < elmntHight) {
+      setIsPlay(true);
+    } else {
+      setIsPlay(false);
+    }
+  }, [scrollY]);
 
   const navigate = useNavigate();
   return (
     <div id="main-player" className="player-wrapper">
       <ReactPlayer
         className="react-player"
-        playing={scrollY < elmntHight ? true : false}
+        playing={isPlay}
         loop={true}
         width="100%"
         height="100%"

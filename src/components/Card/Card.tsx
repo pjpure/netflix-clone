@@ -3,8 +3,9 @@ import { Wrapper } from "./Card.styles";
 import { BsPlayCircleFill, BsPlusCircle } from "react-icons/bs";
 import ReactPlayer from "react-player";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { setCard } from "../../app/slices/cardSlice";
+import { useAppDispatch } from "../../app/hooks";
+
+import { useNavigate } from "react-router-dom";
 type Props = {
   id: string;
   img: string;
@@ -18,9 +19,7 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
   const [cardWidth, setCardWidth] = useState<number>(320);
   const [cardHeight, setCardHeight] = useState<number>(180);
   const { width } = useWindowDimensions();
-
-  const card = useAppSelector((state) => state.card);
-  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [isPlay, setIsPlay] = useState(false);
   const [isEnter, setIsEnter] = useState(false);
@@ -31,7 +30,6 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
     useState<ReturnType<typeof setTimeout>>();
 
   const handleMouseEnter = (event: any) => {
-    //setIsEnter(true);
     setDelayHandlerEnter(
       setTimeout(() => {
         setIsEnter(true);
@@ -39,16 +37,15 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
     );
     setDelayHandler(
       setTimeout(() => {
-        //setIsPlay(true);
-        dispatch(setCard(id));
-      }, 2000)
+        setIsPlay(true);
+      }, 1000)
     );
   };
 
   const handleMouseLeave = () => {
     setIsEnter(false);
-    //setIsPlay(false);
-    dispatch(setCard(null));
+    setIsPlay(false);
+
     if (delayHandlerEnter) {
       clearTimeout(delayHandlerEnter);
     }
@@ -63,14 +60,6 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
     setCardWidth(calWidth);
     setCardHeight(Math.floor(calWidth / 1.77778));
   }, [numItem, width]);
-
-  useEffect(() => {
-    if (card.id === id) {
-      setIsPlay(true);
-    } else {
-      setIsPlay(false);
-    }
-  }, [card, id]);
 
   return (
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -91,7 +80,10 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
 
         <div className="details">
           <div className="details-icon">
-            <BsPlayCircleFill size={25} />
+            <BsPlayCircleFill
+              size={25}
+              onClick={() => navigate(`/watch/${id}`)}
+            />
             <BsPlusCircle size={25} />
           </div>
           <div className="details-des">

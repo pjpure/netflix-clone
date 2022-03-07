@@ -7,14 +7,6 @@ import "./MultiItemCarousel.css";
 //hooks
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
-// type Card = {
-//   id: string;
-//   img: string;
-//   video: string;
-//   title: string;
-//   genres: string;
-// };
-
 function MultiItemCarousel({ type, data }: { type: string; data: any }) {
   const [numItem, setNumItem] = useState(5);
   const [startIndex, setStartIndex] = useState<number>(0);

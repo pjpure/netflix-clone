@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-
 interface CardState {
     id: string | null
 
@@ -10,10 +9,8 @@ interface CardState {
 const initialState: CardState = {
     id: null,
 }
-
-
-const cardSlice = createSlice({
-    name: 'card',
+const myListSlice = createSlice({
+    name: 'mylist',
     initialState,
     reducers: {
         setCard: (state, action: PayloadAction<string | null>) => {
@@ -23,6 +20,6 @@ const cardSlice = createSlice({
 
 })
 
-export const { setCard } = cardSlice.actions;
+export const { setCard } = myListSlice.actions;
 
-export default cardSlice.reducer;
+export default myListSlice.reducer;

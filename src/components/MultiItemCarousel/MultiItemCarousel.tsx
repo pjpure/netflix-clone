@@ -47,29 +47,36 @@ function MultiItemCarousel({ type, data }: { type: string; data: any }) {
   };
 
   return (
-    <div className="multi-item">
-      <h4 style={{ marginBottom: "10px" }}>{type}</h4>
-      {startIndex !== 0 && (
-        <div className="arrow-left" onClick={handlePrev}>
-          <AiOutlineLeft size={40} />
-        </div>
-      )}
-      {endIndex < data.length && (
-        <div className="arrow-right" onClick={handleNext}>
-          <AiOutlineRight size={40} />
-        </div>
-      )}
+    <div>
+      <h4 className="type-head">{type}</h4>
+      <div className="multi-item">
+        {startIndex !== 0 && (
+          <div className="arrow-left" onClick={handlePrev}>
+            <AiOutlineLeft size={40} />
+          </div>
+        )}
+        {endIndex < data.length && (
+          <div className="arrow-right" onClick={handleNext}>
+            <AiOutlineRight size={40} />
+          </div>
+        )}
 
-      <div className="slider">
-        {data
-          .filter((item: any, idx: number) => {
-            return idx >= startIndex && idx < endIndex;
-          })
-          .map((item: any) => {
-            return (
-              <Card key={item.id} video={item} numItem={numItem} action="add" />
-            );
-          })}
+        <div className="slider">
+          {data
+            .filter((item: any, idx: number) => {
+              return idx >= startIndex && idx < endIndex;
+            })
+            .map((item: any) => {
+              return (
+                <Card
+                  key={item.id}
+                  video={item}
+                  numItem={numItem}
+                  action="add"
+                />
+              );
+            })}
+        </div>
       </div>
     </div>
   );

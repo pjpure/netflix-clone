@@ -71,20 +71,17 @@ const Card: React.FC<Props> = ({ video, numItem, action }) => {
   return (
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Wrapper isSelected={isEnter} width={cardWidth} height={cardHeight}>
-        <div className="contents">
-          <img src={video.img} alt="poster" />
-          <div className="video-wrapper">
-            <ReactPlayer
-              playing={isPlay}
-              loop={true}
-              width={cardWidth}
-              height={cardHeight}
-              url={video.video}
-              muted={true}
-            />
-          </div>
+        <img src={video.img} alt="poster" />
+        <div className="video-wrapper">
+          <ReactPlayer
+            playing={isPlay}
+            loop={true}
+            width={cardWidth}
+            height={cardHeight}
+            url={video.video}
+            muted={true}
+          />
         </div>
-
         <div className="details">
           <div className="details-icon">
             <BsPlayCircleFill

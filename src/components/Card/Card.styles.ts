@@ -30,7 +30,7 @@ export const Wrapper = styled.div<Props>`
     border-radius: var(--border-radius);
   }
   .video-wrapper {
-    ${props => props.isSelected ? 'opacity: 100; height:50% ;' : 'opacity: 0;'}
+    ${props => props.isSelected ? 'opacity: 100;' : 'opacity: 0;'}
     position: absolute;
     top: 0;
     width: 100%;

@@ -1,7 +1,12 @@
 .my-list {
+  margin: 100px 75px;
+  color: white;
+}
+
+.list {
   display: flex;
   column-gap: 30px;
   row-gap: 30px;
-  margin: 100px 80px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }

@@ -3,7 +3,7 @@ import myListRuducer from './slices/myListSlice'
 
 export const store = configureStore({
     reducer: {
-        mylist: myListRuducer
+        myList: myListRuducer
     },
 })
 

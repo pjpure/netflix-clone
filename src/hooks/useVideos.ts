@@ -2,7 +2,7 @@ import {
     useQuery,
 } from 'react-query'
 
-type Viedo = {
+type Video = {
     id: string,
     type: string,
     title: string,
@@ -14,19 +14,19 @@ type Viedo = {
 const baseUrl = 'https://netflix-clone-db.pjpure.repl.co/videos/'
 
 export const useMovies = () => {
-    return useQuery<Viedo[], { message: string }>('movies', () =>
+    return useQuery<Video[], { message: string }>('movies', () =>
         fetch(`${baseUrl}?type=movie`).then((res) => res.json()).then((data) => data),
     )
 }
 
 export const useSeries = () => {
-    return useQuery<Viedo[], { message: string }>('series', () =>
+    return useQuery<Video[], { message: string }>('series', () =>
         fetch(`${baseUrl}?type=series`).then((res) => res.json()).then((data) => data),
     )
 }
 
 export const useAnimes = () => {
-    return useQuery<Viedo[], { message: string }>('animes', () =>
+    return useQuery<Video[], { message: string }>('animes', () =>
         fetch(`${baseUrl}?type=anime`).then((res) => res.json()).then((data) => data),
     )
 }

@@ -1,0 +1,7 @@
+.my-list {
+  display: flex;
+  column-gap: 30px;
+  row-gap: 30px;
+  margin: 100px 80px;
+  flex-wrap: wrap;
+}

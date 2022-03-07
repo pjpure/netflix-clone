@@ -1,25 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { Wrapper } from "./Card.styles";
-import { BsPlayCircleFill, BsPlusCircle } from "react-icons/bs";
+import { BsPlayCircleFill, BsPlusCircle, BsDashCircle } from "react-icons/bs";
 import ReactPlayer from "react-player";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { useAppDispatch } from "../../app/hooks";
-
+import { addToList, removeFromList } from "../../app/slices/myListSlice";
 import { useNavigate } from "react-router-dom";
-type Props = {
+type Video = {
   id: string;
+  type: string;
   img: string;
   video: string;
   title: string;
   genres: string;
-  numItem: number;
 };
 
-const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
+type Props = {
+  video: Video;
+  numItem: number;
+  action: string;
+};
+
+const Card: React.FC<Props> = ({ video, numItem, action }) => {
   const [cardWidth, setCardWidth] = useState<number>(320);
   const [cardHeight, setCardHeight] = useState<number>(180);
   const { width } = useWindowDimensions();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const [isPlay, setIsPlay] = useState(false);
   const [isEnter, setIsEnter] = useState(false);
@@ -65,14 +72,14 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Wrapper isSelected={isEnter} width={cardWidth} height={cardHeight}>
         <div className="contents">
-          <img src={img} alt="poster" />
+          <img src={video.img} alt="poster" />
           <div className="video-wrapper">
             <ReactPlayer
               playing={isPlay}
               loop={true}
               width={cardWidth}
               height={cardHeight}
-              url={video}
+              url={video.video}
               muted={true}
             />
           </div>
@@ -82,13 +89,25 @@ const Card: React.FC<Props> = ({ id, img, video, title, genres, numItem }) => {
           <div className="details-icon">
             <BsPlayCircleFill
               size={25}
-              onClick={() => navigate(`/watch/${id}`)}
+              onClick={() => navigate(`/watch/${video.id}`)}
             />
-            <BsPlusCircle size={25} />
+            {action === "add" && (
+              <BsPlusCircle
+                size={25}
+                onClick={() => dispatch(addToList(video))}
+              />
+            )}
+
+            {action === "delete" && (
+              <BsDashCircle
+                size={25}
+                onClick={() => dispatch(removeFromList(video.id))}
+              />
+            )}
           </div>
           <div className="details-des">
-            <h5>{title}</h5>
-            <p>{genres}</p>
+            <h5>{video.title}</h5>
+            <p>{video.genres}</p>
           </div>
         </div>
       </Wrapper>

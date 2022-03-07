@@ -1,25 +1,38 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface CardState {
-    id: string | null
-
-}
-
 // Define the initial state using that type
-const initialState: CardState = {
-    id: null,
+type Video = {
+    id: string,
+    type: string,
+    title: string,
+    genres: string,
+    img: string,
+    video: string,
 }
+
+type VideoState = Video[]
+
+const initialState: VideoState = []
 const myListSlice = createSlice({
-    name: 'mylist',
+    name: 'myList',
     initialState,
     reducers: {
-        setCard: (state, action: PayloadAction<string | null>) => {
-            state.id = action.payload;
+        addToList: (state, action: PayloadAction<Video>) => {
+            const foundItem = state.find(
+                (item) => item.id === action.payload.id
+            )
+            if (!foundItem) {
+                state.push(action.payload)
+            }
         },
+        removeFromList: (state, action: PayloadAction<string>) => {
+            return state.filter((item) => item.id !== action.payload)
+        }
+
     },
 
 })
 
-export const { setCard } = myListSlice.actions;
+export const { addToList, removeFromList } = myListSlice.actions;
 
 export default myListSlice.reducer;

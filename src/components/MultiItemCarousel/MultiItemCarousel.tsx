@@ -66,7 +66,9 @@ function MultiItemCarousel({ type, data }: { type: string; data: any }) {
             return idx >= startIndex && idx < endIndex;
           })
           .map((item: any) => {
-            return <Card key={item.id} {...item} numItem={numItem} />;
+            return (
+              <Card key={item.id} video={item} numItem={numItem} action="add" />
+            );
           })}
       </div>
     </div>

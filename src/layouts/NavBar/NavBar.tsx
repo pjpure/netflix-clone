@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import netflixLogo from "../../assets/netflix-logo.png";
 import { FaSearch } from "react-icons/fa";
@@ -7,6 +8,7 @@ import { ImCross } from "react-icons/im";
 function NavBar() {
   const [search, setSearch] = useState<string>("");
   const [isSearch, setIsSearch] = useState<boolean>(false);
+  const navigate = useNavigate();
   const searchToggle = () => {
     setIsSearch(!isSearch);
     setSearch("");
@@ -18,19 +20,19 @@ function NavBar() {
 
   return (
     <div className="my-nav-bar">
-      <a href="/">
+      <span onClick={() => navigate("/")}>
         <img
           style={{ cursor: "pointer" }}
           src={netflixLogo}
           alt="Netflix Logo"
         />
-      </a>
+      </span>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <span onClick={() => navigate("/")}>Home</span>
         </li>
         <li>
-          <a href="/">My List</a>
+          <span onClick={() => navigate("/mylist")}>My List</span>
         </li>
       </ul>
       <div

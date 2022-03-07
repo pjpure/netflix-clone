@@ -1,25 +1,23 @@
 import "./App.css";
-import NavBar from "./layouts/NavBar/NavBar";
-import Footer from "./layouts/Footer/Footer";
-import MainPlayer from "./components/MainPlayer/MainPlayer";
-import MultiItemCarousel from "./components/MultiItemCarousel/MultiItemCarousel";
-import movies from "./data/movies";
-import animes from "./data/animes";
-import series from "./data/series";
-import mylists from "./data/mylists";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Watch from "./pages/Watch/Watch";
+import MyList from "./pages/MyList/MyList";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 function App() {
+  const queryClient = new QueryClient();
   return (
-    <div className="App">
-      <NavBar />
-      <MainPlayer />
-      <div className="list">
-        <MultiItemCarousel type={"Movies"} data={movies} />
-        <MultiItemCarousel type={"Animes"} data={animes} />
-        <MultiItemCarousel type={"Series"} data={series} />
-        <MultiItemCarousel type={"My List"} data={mylists} />
-        <Footer />
-      </div>
+    <div>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/mylist" element={<MyList />} />
+            <Route path="/watch/:id" element={<Watch />} />
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
     </div>
   );
 }

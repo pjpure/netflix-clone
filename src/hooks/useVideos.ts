@@ -11,7 +11,7 @@ type Video = {
     video: string,
 }
 
-const baseUrl = 'https://netflix-clone-db.pjpure.repl.co'
+const baseUrl = 'https://netflix-clone-backend-pjpure.herokuapp.com'
 
 export const useMovies = () => {
     return useQuery<Video[], { message: string }>('movies', () =>
